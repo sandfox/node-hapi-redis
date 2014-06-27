@@ -12,7 +12,7 @@ describe('Hapi server', function() {
     server = null;
   });
 
-  //Need to test option parsing works...
+  //Need to test option parsing works... and so so much more
 
   it('should be able to register plugin default options', function(done) {
     server.pack.register({

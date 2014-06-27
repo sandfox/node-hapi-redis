@@ -7,6 +7,10 @@
     "test": "NODE_ENV=test mocha",
     "testwatch": "NODE_ENV=test mocha -w"
   },
+  "repository" : {
+    "type": "git",
+    "url": "git://github.com/sandfox/node-hapi-redis.git"
+  },
   "keywords": [
     "hapi",
     "redis",
