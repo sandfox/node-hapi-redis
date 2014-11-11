@@ -18,11 +18,11 @@ describe('Hapi server', function() {
     server.pack.register({
       plugin: require('../')
     }, function () {
-      console.log( server.pack.plugins['hapi-redis'].client)
       assert(server.pack.plugins['hapi-redis'].client,'no redis client was returned');
-      assert(server.pack.plugins['hapi-redis'].client.port == 6379, 'connected to incorrect port');
-      assert(server.pack.plugins['hapi-redis'].client.host == '127.0.0.1', 'connected to incorrect host');
-      done();
+      server.pack.plugins['hapi-redis'].client.ping(function(err, res){
+        assert.equal(res, 'PONG', "didn't get a pong for our ping")
+        done()
+      })
     });
   });
 });
