@@ -6,6 +6,10 @@
 
 This is a plugin to share a common redis connection across the whole Hapi server.
 
+__This version (2.x.x) is intended for use with hapi v8.x.x__
+
+__If you are looking for a version that works with hapi v7.x.x then please use version 1.x.x__
+
 It takes 3 options :
 
 - port: *Optional.* port to connect to (eg. `6379`),
@@ -32,7 +36,7 @@ var redisOpts = {
 var server = new Hapi.Server(8080);
 
 server.pack.register({
-    plugin: require('hapi-redis'),
+    register: require('hapi-redis'),
     options: redisOpts
 }, function () {
     }

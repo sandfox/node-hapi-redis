@@ -1,7 +1,7 @@
 var redis = require('redis');
 
 
-exports.register = function (plugin, options, next) {
+exports.register = function (server, options, next) {
 
   options = options || {};
 
@@ -16,15 +16,15 @@ exports.register = function (plugin, options, next) {
   }
 
   redisClient.on("error", function(err){
-    plugin.log([ 'hapi-redis', 'error' ], err.message)
+    server.log([ 'hapi-redis', 'error' ], err.message)
   })
 
   redisClient.on("ready", function(){
-    plugin.log([ 'hapi-redis', 'info' ], 'redisClient connection created');
+    server.log([ 'hapi-redis', 'info' ], 'redisClient connection created');
     next();
   })
 
-  plugin.expose('client', redisClient);
+  server.expose('client', redisClient);
 
 };
 
