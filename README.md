@@ -6,9 +6,11 @@
 
 This is a plugin to share a common redis connection across the whole Hapi server.
 
-__This version (2.x.x) is intended for use with hapi v8.x.x__
+__This version (>= 2.x.x) is intended for use with hapi v8.x.x__
 
 __If you are looking for a version that works with hapi v7.x.x then please use version 1.x.x__
+
+__As of 3.x.x it is now possible to register this plugin multiple times__
 
 It takes 3 options :
 
