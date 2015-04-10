@@ -41,7 +41,7 @@ server.pack.register({
     register: require('hapi-redis'),
     options: redisOpts
 }, function () {
-    }
+
 });
 
 server.route( {
