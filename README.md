@@ -20,7 +20,7 @@ It takes 3 options :
     - defaults to `127.0.0.1`
 - opts: *Optional.* Provide extra settings to the connection, see [documentation](https://github.com/mranney/node_redis#rediscreateclientport-host-options).
 
-One object is are exposed by this plugin :
+One object is exposed by this plugin :
 
 - `client` : connection object to the redis instance
 
