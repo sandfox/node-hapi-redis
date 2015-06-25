@@ -1,5 +1,5 @@
-var redis = require('redis');
-
+var Promise = require('bluebird');
+var redis = Promise.promisifyAll(require("redis"));
 
 exports.register = function (server, options, next) {
 
@@ -12,17 +12,17 @@ exports.register = function (server, options, next) {
   var redisClient = redis.createClient(options.port, options.host, options.opts);
 
   if (options.password) {
-    redisClient.auth(options.password)
+    redisClient.auth(options.password);
   }
 
   redisClient.on("error", function(err){
     server.log([ 'hapi-redis', 'error' ], err.message)
-  })
+  });
 
   redisClient.on("ready", function(){
     server.log([ 'hapi-redis', 'info' ], 'redisClient connection created');
     next();
-  })
+  });
 
   server.expose('client', redisClient);
 
