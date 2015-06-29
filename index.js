@@ -19,6 +19,7 @@ exports.register = function (server, options, next) {
   });
 
   server.expose('client', redisClient);
+  server.expose('library', redis);
 
 };
 

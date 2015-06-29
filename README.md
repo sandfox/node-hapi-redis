@@ -18,7 +18,7 @@ __As of 4.x.x `redis` is now a peer dependency (0.12.x) to allow users more free
 
 
 
-## Usage
+## Registering the plugin
 
 The `options` are passed through to [basic-redis-factory](https://github.com/sandfox/node-basic-redis-factory/tree/v0.0.3#api) as the 2nd argument. The relevant part of the docs are reproduced here for ease of reference:
 
@@ -35,16 +35,20 @@ and fallback to defaults for any missing values (host: `127.0.01`, port: `6379`,
 
 If `opts.url` is supplied then `opts.host`, `opts.port`, and `opts.password` keys will be ignored.
 
-If you wish to use `hiredis` then just 
+If you wish to use the `hiredis` parser then just:
 ```
 npm install -save hiredis
 ```
-and this module will automatically use it (unless you override that with the `parser` option)
+and this module will automatically use it (unless you override that with the `parser` option).
 
-One object is exposed by this plugin :
+The registration of this plugin will only complete on either succesful connection to the redis instance or an error.
 
-- `client` : connection object to the redis instance
+## Using the plugin
 
+Two objects are exposed by this plugin :
+
+- `client` : a redis client connection object that is connected to the redis instance
+- `library`: the redis module used by this module
 
 ## Example
 
