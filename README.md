@@ -13,13 +13,14 @@ __If you are looking for a version that works with hapi v7.x.x then please use v
 __As of 3.x.x it is now possible to register this plugin multiple times__
 
 __As of 4.x.x it is now possible to supply a connection string as the `option`__
+
 __As of 4.x.x `redis` is now a peer dependency (0.12.x) to allow users more freedom with redis versions__
 
 
 
 ## Usage
 
-The `options` are passed through to [basic-redis-factory](https://github.com/sandfox/node-basic-redis-factory/tree/v0.0.2#api) as the 2nd argument. The relevant part of the docs are reproduced here for ease of reference:
+The `options` are passed through to [basic-redis-factory](https://github.com/sandfox/node-basic-redis-factory/tree/v0.0.3#api) as the 2nd argument. The relevant part of the docs are reproduced here for ease of reference:
 
 options can either be a url connection string (i.e `redis://user:password@127.0.0.1:6379`) or an object.
 
