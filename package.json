@@ -1,6 +1,6 @@
 {
   "name": "hapi-redis",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "redis client plugin for hapi",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,9 @@
     "mocha": "^2.0.1"
   },
   "dependencies": {
-    "redis": "^0.12.1"
+    "basic-redis-factory": "0.0.3"
+  },
+  "peerDependencies": {
+    "redis": "0.12.x"
   }
 }

@@ -1,19 +1,11 @@
 var redis = require('redis');
-
+var redisClientFactory = require('basic-redis-factory');
 
 exports.register = function (server, options, next) {
 
   options = options || {};
 
-  options.port = options.port || 6379;
-  options.host = options.host || "127.0.0.1";
-  options.opts = options.opts || null;
-
-  var redisClient = redis.createClient(options.port, options.host, options.opts);
-
-  if (options.password) {
-    redisClient.auth(options.password)
-  }
+  var redisClient = redisClientFactory(redis, options);
 
   redisClient.on("error", function(err){
     server.log([ 'hapi-redis', 'error' ], err.message)
