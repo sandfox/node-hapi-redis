@@ -1,6 +1,6 @@
 {
   "name": "hapi-redis",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "redis client plugin for hapi",
   "main": "index.js",
   "scripts": {

@@ -28,9 +28,9 @@ Usage example :
 ```js
 var Hapi = require("hapi");
 
-var redisOpts = {
+var redisOptions = {
     "host": "localhost",
-    "options": {
+    "opts": {
         "parser": "javascript"
     }
 };
@@ -39,7 +39,7 @@ var server = new Hapi.Server(8080);
 
 server.pack.register({
     register: require('hapi-redis'),
-    options: redisOpts
+    options: redisOptions
 }, function () {
 
 });
