@@ -19,4 +19,16 @@ describe('Hapi server', function() {
       })
     });
   });
+  it('should throw error if redis connection fails', function(done) {
+    var server = new Hapi.Server();
+    server.register({
+      register: redisPlugin,
+      options: {
+        host: 'invalid'
+      }
+    }, function (err) {
+      assert(err instanceof Error, 'No error thrown for failed connection')
+      done()
+    });
+  });
 });
