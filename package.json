@@ -25,9 +25,7 @@
     "mocha": "^2.0.1"
   },
   "dependencies": {
+    "redis": "0.12.x",
     "basic-redis-factory": "0.0.3"
-  },
-  "peerDependencies": {
-    "redis": "0.12.x"
   }
 }
