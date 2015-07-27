@@ -14,9 +14,9 @@ __As of 3.x.x it is now possible to register this plugin multiple times__
 
 __As of 4.x.x it is now possible to supply a connection string as the `option`__
 
-__As of 4.x.x `redis` is now a peer dependency (0.12.x) to allow users more freedom with redis versions__
+~~__As of 4.x.x `redis` is now a peer dependency (0.12.x) to allow users more freedom with redis versions__~~
 
-
+__As of 5.x.x we've scrapped redis as a peer deps__
 
 ## Registering the plugin
 
