@@ -18,13 +18,17 @@ __As of 4.x.x it is now possible to supply a connection string as the `option`__
 
 __As of 5.x.x we've scrapped redis as a peer deps__
 
+__With 6.x.x the `options` object has changed it's signature__
+
 ## Registering the plugin
 
-The `options` are passed through to [basic-redis-factory](https://github.com/sandfox/node-basic-redis-factory/tree/v0.0.3#api) as the 2nd argument. The relevant part of the docs are reproduced here for ease of reference:
+Options:
+- `redisLibrary`:  passing in a `redis` module to override the one bundled with this module. optional.
+- `connection`: an object or string that is passed through to [basic-redis-factory](https://github.com/sandfox/node-basic-redis-factory/tree/v0.0.3#api) as the 2nd argument. The relevant part of the docs are reproduced here for ease of reference:
 
-options can either be a url connection string (i.e `redis://user:password@127.0.0.1:6379`) or an object.
+`connection` can either be a url connection string (i.e `redis://user:password@127.0.0.1:6379`) or an object.
 
-if options is an object then the factory will look for the following keys on the object
+if `connection` is an object then the factory will look for the following keys on the object
 and fallback to defaults for any missing values (host: `127.0.01`, port: `6379`, no authentication).
 
 - `url` : a url connection string.
@@ -55,10 +59,12 @@ Two objects are exposed by this plugin :
 ```js
 var Hapi = require("hapi");
 
-var redisOptions = {
-    "host": "localhost",
-    "opts": {
-        "parser": "javascript"
+var myPluginOpts = {
+    connection: {
+        "host": "localhost"
+        "opts": {
+            "parser": "javascript"
+        }
     }
 };
 
@@ -66,7 +72,7 @@ var server = new Hapi.Server(8080);
 
 server.pack.register({
     register: require('hapi-redis'),
-    options: redisOptions
+    options: myPluginOpts
 }, function () {
 
 });
