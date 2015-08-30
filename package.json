@@ -21,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^0.24.0",
+    "fakeredis": "^0.3.2",
     "hapi": "^8.2.0",
     "mocha": "^2.0.1"
   },

@@ -7,7 +7,11 @@ exports.register = function (server, options, next) {
 
   options = options || {};
 
-  var redisClient = redisClientFactory(redis, options);
+  var redisOpts = options.connection;
+
+  var redisLibrary = options.redisLibrary || redis;
+
+  var redisClient = redisClientFactory(redisLibrary, redisOpts);
 
   /**
    * error handler for errors after initial connection has been established
@@ -36,7 +40,7 @@ exports.register = function (server, options, next) {
   });
 
   server.expose('client', redisClient);
-  server.expose('library', redis);
+  server.expose('library', redisLibrary);
 
 };
 

@@ -1,16 +1,17 @@
 var Hapi = require('hapi');
 var assert = require('assert');
 
+var fakeClient = require('fakeredis');
+
 var redisPlugin = require('../');
 
-describe('Hapi server', function() {
+describe('Redis client plugin', function() {
 
-  //Need to test option parsing works... and so so much more
-
-  it('should be able to register plugin default options', function(done) {
+  it('should be able to register the plugin with default options', function(done) {
     var server = new Hapi.Server();
     server.register({
-      register: redisPlugin
+      register: redisPlugin,
+      options: {redisLibrary: fakeClient}
     }, function () {
       assert(server.plugins['hapi-redis'].client,'no redis client was returned');
       server.plugins['hapi-redis'].client.ping(function(err, res){
@@ -19,6 +20,7 @@ describe('Hapi server', function() {
       })
     });
   });
+
   it('should throw error if redis connection fails', function(done) {
     var server = new Hapi.Server();
     server.register({
