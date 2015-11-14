@@ -86,7 +86,7 @@ server.route( {
 function usersHandler(request, reply) {
     var redisClient = request.server.plugins['hapi-redis'].client;
 
-    //Do something with thr redis client
+    // Do something with the redis client
     // reply(result);
 };
 
