@@ -1,11 +1,18 @@
 "use strict";
 
+var bluebird = require('bluebird');
 var redis = require('redis');
 var redisClientFactory = require('basic-redis-factory');
 
 exports.register = function (server, options, next) {
 
   options = options || {};
+
+  // allows for promise support when using default redis library (node_redis)
+  if (options.enablePromises && !options.redisLibrary) {
+    bluebird.promisifyAll(redis.RedisClient.prototype);
+    bluebird.promisifyAll(redis.Multi.prototype);
+  }
 
   var redisOpts = options.connection;
 

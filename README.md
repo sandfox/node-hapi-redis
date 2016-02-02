@@ -24,6 +24,7 @@ __With 6.x.x the `options` object has changed it's signature__
 
 Options:
 - `redisLibrary`:  passing in a `redis` module to override the one bundled with this module. optional.
+- `enablePromises` enables promise support for the default library. Note that this option has no effect when specifying a `redisLibrary` of your own. optional.
 - `connection`: an object or string that is passed through to [basic-redis-factory](https://github.com/sandfox/node-basic-redis-factory/tree/v0.0.3#api) as the 2nd argument. The relevant part of the docs are reproduced here for ease of reference:
 
 `connection` can either be a url connection string (i.e `redis://user:password@127.0.0.1:6379`) or an object.
@@ -94,3 +95,6 @@ server.start(function() {
     console.log("Server started at " + server.info.uri);
 });
 ```
+
+## Promise Support
+To enable Promise support for the default Redis Library (node_redis), you may pass `enablePromises: true` in your plugin options. All original methods will now be suffixed with `Async`. For example, you would now call `get()` as `getAsync()`. See the [node-redis documentation](https://github.com/NodeRedis/node_redis#promises) for more details.

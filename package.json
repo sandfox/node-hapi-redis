@@ -26,7 +26,8 @@
     "mocha": "^2.0.1"
   },
   "dependencies": {
-    "redis": "^2.3.0",
-    "basic-redis-factory": "0.0.3"
+    "basic-redis-factory": "0.0.3",
+    "bluebird": "3.2.1",
+    "redis": "^2.4.0"
   }
 }
